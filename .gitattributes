@@ -1,0 +1,6 @@
+# Daily logs are append-only — use concat-both driver to avoid conflicts
+# when syncing between macOS and VPS.
+# Register the driver on each machine:
+#   git config merge.concat-both.driver "./git-merge-concat %O %A %B"
+#   git config merge.concat-both.name "Append-only daily log merge"
+Sintetica/Memory/daily/*.md merge=concat-both

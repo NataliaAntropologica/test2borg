@@ -1,0 +1,26 @@
+#!/bin/bash
+# concat-both merge driver — for append-only daily logs.
+# Registered in .gitattributes for Sintetica/Memory/daily/*.md
+#
+# Git calls: git-merge-concat %O %A %B
+#   %O = ancestor (common base)
+#   %A = current branch version (modified in-place — this is the output file)
+#   %B = other branch version
+#
+# Strategy: take the other (remote) version as the base, then append any
+# lines from the current (local) version not already present. This preserves
+# the remote's ordering and adds local-only additions at the end.
+
+ANCESTOR="$1"
+LOCAL="$2"
+REMOTE="$3"
+
+# Start with remote version
+cp "$REMOTE" "$LOCAL.merged"
+
+# Append lines from LOCAL not present in REMOTE, preserving LOCAL order
+grep -vxFf "$REMOTE" "$LOCAL" >> "$LOCAL.merged" 2>/dev/null || true
+
+# Write merged result back to the output file
+mv "$LOCAL.merged" "$LOCAL"
+exit 0

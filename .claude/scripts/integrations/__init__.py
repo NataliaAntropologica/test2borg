@@ -1,0 +1,1 @@
+# Sintetica integrations package

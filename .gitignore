@@ -1,0 +1,40 @@
+# Credentials — never commit
+.env
+.env.*
+*.pem
+*.key
+*_token.json
+credentials.json
+client_secrets.json
+google_token.json
+slack_token.json
+github_token.json
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# Runtime data
+.claude/data/
+*.tmp
+*.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# macOS
+.DS_Store
+
+# Model cache (large, re-downloadable)
+.cache/fastembed/
+
+# SQLite databases (regenerated from vault)
+*.db
+*.db-shm
+*.db-wal

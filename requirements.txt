@@ -1,0 +1,20 @@
+# Sintetica Strategic Brain — Python dependencies
+# Install: pip install -r requirements.txt
+
+# Phase 2 — Agent SDK (memory flush)
+claude-agent-sdk
+
+# Phase 3 — Memory search
+fastembed
+numpy
+
+# Phase 4 — Gmail integration
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
+
+# Phase 4 — GitHub integration
+PyGithub
+
+# Phase 4 — Slack integration (read-only)
+slack_sdk
